@@ -6,82 +6,82 @@ import { useState } from 'react'
 const employeesData = [
   {
     id: 1,
-    name: "John Smith",
+    name: "Rajesh Kumar",
     department: "Engineering",
     position: "Senior Developer",
-    email: "john.smith@company.com",
+    email: "rajesh.kumar@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 2,
-    name: "Sarah Johnson",
+    name: "Priya Sharma",
     department: "Marketing",
     position: "Marketing Manager",
-    email: "sarah.johnson@company.com",
+    email: "priya.sharma@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 3,
-    name: "Michael Brown",
+    name: "Amit Patel",
     department: "Sales",
     position: "Sales Representative",
-    email: "michael.brown@company.com",
+    email: "amit.patel@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 4,
-    name: "Emily Davis",
+    name: "Sneha Reddy",
     department: "HR",
     position: "HR Specialist",
-    email: "emily.davis@company.com",
+    email: "sneha.reddy@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 5,
-    name: "David Wilson",
+    name: "Vikram Singh",
     department: "Engineering",
     position: "Frontend Developer",
-    email: "david.wilson@company.com",
+    email: "vikram.singh@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 6,
-    name: "Lisa Garcia",
+    name: "Ananya Iyer",
     department: "Finance",
     position: "Financial Analyst",
-    email: "lisa.garcia@company.com",
+    email: "ananya.iyer@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 7,
-    name: "Robert Martinez",
+    name: "Arjun Mehta",
     department: "Operations",
     position: "Operations Manager",
-    email: "robert.martinez@company.com",
+    email: "arjun.mehta@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 8,
-    name: "Jennifer Lee",
+    name: "Kavya Nair",
     department: "Marketing",
     position: "Content Specialist",
-    email: "jennifer.lee@company.com",
+    email: "kavya.nair@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 9,
-    name: "Christopher Taylor",
+    name: "Rohan Verma",
     department: "Engineering",
     position: "Backend Developer",
-    email: "christopher.taylor@company.com",
+    email: "rohan.verma@kmrl.in",
     phone: "+91 8468845787"
   },
   {
     id: 10,
-    name: "Amanda White",
+    name: "Pooja Desai",
     department: "Sales",
     position: "Sales Manager",
-    email: "amanda.white@company.com",
+    email: "pooja.desai@kmrl.in",
     phone: "+91 8468845787"
   }
 ]
