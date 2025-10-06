@@ -66,6 +66,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
     { name: "Upload", icon: Upload, href: "/dashboard/upload", current: false },
     { name: "AI Processing", icon: Brain, href: "/dashboard/ai", current: false },
     { name: "Search", icon: Search, href: "/dashboard/search", current: false },
+    { name: "Employees", icon: Search, href: "/dashboard/employee", current: false },
     { name: "AI Chat", icon: Bot, href: "/dashboard/ai-chat", current: false },
     { name: "AR/VR Docs", icon: Glasses, href: "/dashboard/ar-vr", current: false },
     { name: "Blockchain", icon: Shield, href: "/dashboard/blockchain", current: false },
