@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { DashboardLayout } from "@/components/dashboard/dashboard-layout"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -107,7 +108,8 @@ export default function PredictivePage() {
   ]
 
   return (
-    <div className="space-y-6">
+    <DashboardLayout>
+      <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Predictive AI Analytics</h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
@@ -317,6 +319,7 @@ export default function PredictivePage() {
           </div>
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </DashboardLayout>
   )
 }

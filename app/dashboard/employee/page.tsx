@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import { DashboardLayout } from "@/components/dashboard/dashboard-layout"
 
 // Mock employee data
 const employeesData = [
@@ -133,74 +134,74 @@ export default function EmployeePage() {
   }, {} as Record<string, Employee[]>)
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Employee Directory</h1>
-          <p className="mt-2 text-gray-600">
+    <DashboardLayout>
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Employee Directory</h1>
+          <p className="mt-2 text-gray-600 dark:text-gray-400">
             Manage and contact employees across all departments
           </p>
         </div>
 
         {Object.entries(employeesByDepartment).map(([department, employees]) => (
           <div key={department} className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
               {department} ({employees.length})
             </h2>
             
-            <div className="bg-white shadow-sm rounded-lg overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
+                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                  <thead className="bg-gray-50 dark:bg-gray-700">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                         Name
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                         Position
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                         Email
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                         Phone
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                         Action
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                     {employees.map((employee) => (
-                      <tr key={employee.id} className="hover:bg-gray-50 transition-colors">
+                      <tr key={employee.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
-                              <div className="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
-                                <span className="text-sm font-medium text-gray-700">
+                              <div className="h-10 w-10 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center">
+                                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                                   {employee.name.split(' ').map(n => n[0]).join('')}
                                 </span>
                               </div>
                             </div>
                             <div className="ml-4">
-                              <div className="text-sm font-medium text-gray-900">
+                              <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
                                 {employee.name}
                               </div>
                             </div>
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
                           {employee.position}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                           <a 
                             href={`mailto:${employee.email}`}
-                            className="text-blue-600 hover:text-blue-800"
+                            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                           >
                             {employee.email}
                           </a>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                           {employee.phone}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
@@ -241,18 +242,18 @@ export default function EmployeePage() {
         ))}
 
         {/* Summary */}
-        <div className="mt-8 bg-white rounded-lg shadow-sm p-6">
-          <h3 className="text-lg font-medium text-gray-900 mb-4">Department Summary</h3>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Department Summary</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {Object.entries(employeesByDepartment).map(([department, employees]) => (
-              <div key={department} className="text-center p-4 bg-gray-50 rounded-lg">
+              <div key={department} className="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <div className="text-2xl font-bold text-blue-600">{employees.length}</div>
-                <div className="text-sm text-gray-600">{department}</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">{department}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </DashboardLayout>
   )
 }

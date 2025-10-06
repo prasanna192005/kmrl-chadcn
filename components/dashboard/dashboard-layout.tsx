@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
   FileText,
@@ -19,9 +19,9 @@ import {
   Shield,
   Train,
   Bot,
-  Glasses,
   Zap,
   Mic,
+  UserCheck,
 } from "lucide-react"
 
 interface User {
@@ -41,6 +41,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const [user, setUser] = useState<User | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     const userData = localStorage.getItem("user")
@@ -61,20 +62,18 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   }
 
   const navigation = [
-    { name: "Overview", icon: BarChart3, href: "/dashboard", current: true },
-    { name: "Documents", icon: FileText, href: "/dashboard/documents", current: false },
-    { name: "Upload", icon: Upload, href: "/dashboard/upload", current: false },
-    { name: "AI Processing", icon: Brain, href: "/dashboard/ai", current: false },
-    { name: "Search", icon: Search, href: "/dashboard/search", current: false },
-    { name: "Employees", icon: Search, href: "/dashboard/employee", current: false },
-    { name: "AI Chat", icon: Bot, href: "/dashboard/ai-chat", current: false },
-    { name: "AR/VR Docs", icon: Glasses, href: "/dashboard/ar-vr", current: false },
-    { name: "Blockchain", icon: Shield, href: "/dashboard/blockchain", current: false },
-    { name: "Predictive AI", icon: Zap, href: "/dashboard/predictive", current: false },
-    { name: "Voice Control", icon: Mic, href: "/dashboard/voice", current: false },
-    { name: "Operations", icon: Train, href: "/dashboard/operations", current: false },
-    { name: "Compliance", icon: Shield, href: "/dashboard/compliance", current: false },
-    { name: "Users", icon: Users, href: "/dashboard/users", current: false },
+    { name: "Overview", icon: BarChart3, href: "/dashboard" },
+    { name: "Documents", icon: FileText, href: "/dashboard/documents" },
+    { name: "Upload", icon: Upload, href: "/dashboard/upload" },
+    { name: "AI Processing", icon: Brain, href: "/dashboard/ai" },
+    { name: "Search", icon: Search, href: "/dashboard/search" },
+    { name: "Employees", icon: UserCheck, href: "/dashboard/employee" },
+    { name: "AI Chat", icon: Bot, href: "/dashboard/ai-chat" },
+    { name: "Predictive AI", icon: Zap, href: "/dashboard/predictive" },
+    { name: "Voice Control", icon: Mic, href: "/dashboard/voice" },
+    { name: "Operations", icon: Train, href: "/dashboard/operations" },
+    { name: "Compliance", icon: Shield, href: "/dashboard/compliance" },
+    { name: "Users", icon: Users, href: "/dashboard/users" },
   ]
 
   return (
@@ -104,20 +103,23 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           <div className="flex-1 overflow-y-auto">
             <nav className="mt-6 px-3">
               <div className="space-y-1">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                      item.current
-                        ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200"
-                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                    }`}
-                  >
-                    <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
-                    <span className="truncate">{item.name}</span>
-                  </a>
-                ))}
+                {navigation.map((item) => {
+                  const isActive = pathname === item.href
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={`flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                        isActive
+                          ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200"
+                          : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                      }`}
+                    >
+                      <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
+                      <span className="truncate">{item.name}</span>
+                    </a>
+                  )
+                })}
               </div>
             </nav>
 
