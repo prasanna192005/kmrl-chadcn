@@ -95,7 +95,7 @@ export function LoginForm() {
 
         <div className="mt-6 pt-6 border-t">
           <div className="mb-4 p-3 bg-muted rounded-lg">
-            <p className="text-sm font-medium mb-2">Demo Credentials:</p>
+            <p className="text-sm font-bold mb-2">Demo Credentials:</p>
             <div className="text-xs space-y-1">
               <p>
                 <strong>Admin:</strong> admin@kmrl.co.in / admin123
